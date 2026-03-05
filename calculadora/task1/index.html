@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora Básica</title>
+<style>
+body { background:#c0c0c0; }
+.calc { background:#f0f0f0; padding:10px;}
+#pantalla { width:150px; height:30px; text-align:right;}
+button { width:35px; height:35px; margin:2px;   }
+.num { background:#d9d9d9; }
+.op { background:#f0a23b; color:white; }
+.igual { background:#0b5ed7; color:white; }
+</style>
+</head>
+<body>
+
+<div class="calc">
+  <input id="pantalla" value="0" readonly><br>
+
+  <!-- Botones -->
+  <button class="num" onclick="escribir('7')">7</button>
+  <button class="num" onclick="escribir('8')">8</button>
+  <button class="num" onclick="escribir('9')">9</button>
+  <button class="op" onclick="operar('+')">+</button><br>
+
+  <button class="num" onclick="escribir('4')">4</button>
+  <button class="num" onclick="escribir('5')">5</button>
+  <button class="num" onclick="escribir('6')">6</button>
+  <button class="op" onclick="operar('-')">-</button><br>
+
+  <button class="num" onclick="escribir('1')">1</button>
+  <button class="num" onclick="escribir('2')">2</button>
+  <button class="num" onclick="escribir('3')">3</button>
+  <button class="op" onclick="operar('*')">×</button><br>
+
+  <button class="num" onclick="escribir('0')">0</button>
+  <button class="igual" onclick="igual()">=</button>
+  <button class="op" onclick="operar('/')">÷</button>
+  <button class="op" onclick="limpiar()">C</button>
+</div>
+
+<script>
+let n1=0, op='', nueva=true;
+
+function escribir(d){
+  if(pantalla.value=='0' || nueva) { pantalla.value=d; nueva=false; }
+  else { pantalla.value += d; }
+}
+
+function operar(o){
+  n1 = Number(pantalla.value);
+  op = o;
+  nueva = true;
+}
+
+function igual(){
+  let n2 = Number(pantalla.value);
+  if(op=='+') pantalla.value = n1+n2;
+  if(op=='-') pantalla.value = n1-n2;
+  if(op=='*') pantalla.value = n1*n2;
+  if(op=='/') pantalla.value = n1/n2;
+  n1 = Number(pantalla.value);
+  nueva = true;
+}
+
+function limpiar(){
+  pantalla.value = '0';
+  n1 = 0; op=''; nueva=true;
+}
+</script>
+
+</body>
+</html>
