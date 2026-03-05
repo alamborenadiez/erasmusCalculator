@@ -1,0 +1,105 @@
+/* Calculator container: center and limit max width */
+#calculator {
+  max-width: 320px;
+  width: 90vw;              /* Responsive width: 90% of viewport width */
+  margin: 20px auto;        /* Center horizontally with vertical spacing */
+  font-family: Arial, sans-serif;
+}
+
+/* Display: full width, decent height, right-aligned text */
+#display {
+  width: 100%;
+  height: 50px;
+  background: #222;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 15px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  word-wrap: break-word;   /* Wrap if number is long */
+}
+
+/* Buttons container: grid with 4 columns, gap between buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* Buttons: full width and height to fill grid cell */
+button {
+  width: 100%;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.2s ease;
+}
+
+/* Number and decimal buttons */
+button.num,
+button.decimal {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+button.num:hover,
+button.decimal:hover {
+  background-color: #ddd;
+}
+
+/* Operator buttons */
+button.op {
+  background-color: #ff9500;
+  color: white;
+  font-weight: bold;
+}
+
+button.op:hover {
+  background-color: #e08600;
+}
+
+/* Equals button */
+#equals {
+  background-color: #34c759;
+  color: white;
+  font-weight: bold;
+  grid-column: 3 / 4;
+}
+
+#equals:hover {
+  background-color: #2da84f;
+}
+
+/* Clear button spans two columns */
+#clear,
+#backspace {
+  background-color: #ff3b30;
+  color: white;
+  font-weight: bold;
+  grid-column: 3 / 5; /* Span columns 3 and 4 */
+}
+
+#clear:hover {
+  background-color: #e0352a;
+}
+
+/* Responsive text scaling on very small screens */
+@media (max-width: 320px) {
+  #display {
+    font-size: 1.5rem;
+    height: 40px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}
