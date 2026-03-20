@@ -1,0 +1,21 @@
+#calculator{
+  width:200px;
+  font-family:Arial;
+}
+
+#display{
+  height:40px;
+  background:#222;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:10px;
+  font-size:20px;
+}
+
+button{
+  width:45px;
+  height:40px;
+  margin:2px;
+}
